@@ -4,6 +4,8 @@ import Heading from "../../components/heading";
 import Text from "../../components/text";
 import contactModel from "../../models/contact.model";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +15,19 @@ const Contact = () => {
     service: "",
   });
 
-  const submitMessage = `Nice to meet you ${formData.firstName} ${formData.lastName}!\nWe're thrilled to have a chat with you about ${formData.service}.\nWe will reach you on ${formData.phone} within 24 hours.`;
+  const submitMessage = () => {
+    return (
+      <>
+        <Text>
+          Nice to meet you {formData.firstName} {formData.lastName}!
+        </Text>
+        <Text>
+          We are thrilled to have a chat with you about {formData.service}.
+        </Text>
+        <Text>We will reach you at {formData.phone} within 24 hours.</Text>
+      </>
+    );
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,7 +36,11 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(submitMessage);
+    toast(submitMessage, {
+      position: "top-left",
+      className: "toast-message",
+      progressClassName: "toast-progress-bar",
+    });
     setFormData({
       firstName: "",
       lastName: "",
@@ -46,12 +64,14 @@ const Contact = () => {
               placeholder="First Name"
               value={formData.firstName}
               onChange={handleChange}
+              required
             />
             <FormInput
               name="lastName"
               placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
+              required
             />
           </div>
           <FormInput
@@ -60,6 +80,7 @@ const Contact = () => {
             style="full"
             value={formData.phone}
             onChange={handleChange}
+            required
           />
           <FormInput
             name="service"
@@ -67,12 +88,14 @@ const Contact = () => {
             style="full"
             value={formData.service}
             onChange={handleChange}
+            required
           />
           <button type="submit" className="btn">
             SUBMIT NOW
           </button>
         </form>
       </div>
+      <ToastContainer autoClose={4000} />
     </div>
   );
 };
