@@ -1,3 +1,41 @@
 .contact {
-  height: 30rem;
+  padding: 9rem 0;
+
+  & .container {
+    max-width: 111rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.4rem;
+    align-items: flex-start;
+    max-width: 44.4rem;
+
+    & > p {
+      margin: 5rem 0 4rem 0;
+    }
+  }
+
+  & .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -2.4rem;
+    padding: 0;
+  }
+
+  & .btn {
+    display: block;
+    max-width: 16rem;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #ed4c5c;
+    padding: 1.7rem 0;
+    text-decoration: none;
+    font-size: 1.4rem;
+  }
 }
