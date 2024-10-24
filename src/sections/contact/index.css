@@ -38,4 +38,16 @@
     text-decoration: none;
     font-size: 1.4rem;
   }
+
+  & .btn {
+    width: 16rem;
+    color: white;
+    border-radius: 6px;
+    border-color: transparent;
+    text-align: center;
+    background-color: #ed4c5c;
+    padding: 1.7rem 0;
+    text-decoration: none;
+    font-size: 1.4rem;
+  }
 }

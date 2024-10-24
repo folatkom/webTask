@@ -18,15 +18,20 @@ const Contact = () => {
             <FormInput placeholder="First Name" />
             <FormInput placeholder="Last Name" />
           </div>
-
           <FormInput placeholder="Phone Number" style="full" />
           <FormInput
             placeholder="What Service are you interested in?"
             style="full"
           />
-          <a href="#" className="btn">
+          <button
+            type="submit"
+            className="btn"
+            onClick={() => {
+              console.log("clicked");
+            }}
+          >
             SUBMIT NOW
-          </a>
+          </button>
         </div>
       </div>
     </div>
